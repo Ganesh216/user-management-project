@@ -1,0 +1,137 @@
+body{
+	font: normal 11px Arial, Helvetica, sans-serif; color:#333;
+}
+
+@font-face {
+    font-family: "nhg-text-medium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("NeueHaasGroteskFonts/text-medium-65.eot?#iefix") format("eot"), url("NeueHaasGroteskFonts/text-medium-65.woff2") format("woff2"), url("NeueHaasGroteskFonts/text-medium-65.woff") format("woff"), url("NeueHaasGroteskFonts/text-medium-65.ttf") format("truetype"), url("NeueHaasGroteskFonts/text-medium-65.svg") format("svg#text-medium-65");
+}
+
+.panel {
+	width:800px;
+	margin-top:20px;
+	margin-top:10px;
+	font-family: "nhg-text-medium";
+}
+
+.table th {
+	background-color:#595A5D;
+	color: #FBF7F8;
+	font-weight: 700;
+	font-size: 12px;
+	font-family: "nhg-text-medium";
+}
+
+.domain {
+    border-collapse: separate;
+    border-spacing: 50px 50px;
+}
+.deletedRecord{
+	background-color: #bc6460 !Important;
+}
+.editedRecord{
+	background-color: #f9e59d !Important;
+}
+
+#left {
+	display:inline-block;
+}
+#right {
+	float: right;
+	display:inline-block;
+}
+
+.searchbar {
+	display:inline-block;
+	padding:10px;
+	vertical-align:middle;
+}
+.addmenu {
+	display: inline-block;float:right;
+	margin-right:5px;
+}
+.sec-header {
+	    background-color: #D2D3D4;
+	    height:38px;
+	    vertical-align: middle;
+	    padding-top: 10px;
+	    padding-left: 5px;
+}
+
+.table td {
+	border-bottom: 1px solid #D2D3D4;
+	border-collapse: separate;
+    border-spacing: 2px;
+    font-family: "nhg-text-medium";
+}
+
+.table-header {
+	font-family: "nhg-text-medium";
+	padding-right:5px;
+	display:flex;
+	align-items:center;
+	height:50px;
+	border-left: 1px solid #D2D3D4;
+	border-right: 1px solid #D2D3D4;
+	background-color: #f7f8f9;
+}
+
+select {
+	border: 1px solid #EEE;
+	-moz-appearance:none;
+	height: 20px;
+}
+
+.control-bar {
+	text-align:center;
+	padding:24px;
+}
+
+.pagination>.active>a {
+	background-color:#595A5D;
+}
+
+.section-text {
+	font-weight: 700;
+	font-size: 12px;
+}
+.btn-default {
+	height: 30px;
+	background-color: #B00000;
+	font: bold 12px tahoma, sans-serif;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	cursor: hand;
+	line-height: equal;
+	vertical-align: middle;
+	cursor: pointer;
+	border-radius: 3px;
+	padding: 0 5px 0 5px;
+	outline-style: none;
+}
+
+.btn-default:active,.btn-default:hover {
+	background-color: #B00000;
+	border: 2px solid #B00000;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	cursor: hand;
+}
+
+.form-group {
+	padding-left:10px;	
+}
+
+.form-line {
+display: inline-block;
+width:60%;
+}
+
+select.form-control {
+	height:30px;
+        line-height:30px;
+}

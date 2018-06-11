@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Tasks Management</title>
+<script src="angularjs/angular.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script data-require="ui-bootstrap@*" data-semver="0.12.1" src="bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+<script src="js/user.js"></script>
+<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/default.css" rel="stylesheet">
+</head>
+<body>
+
+<div ng-app = "userApp" ng-controller = "userController">
+
+<table class="table table-striped" id="save_user_grid">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>ID</th>
+		<th colspan="2" >Description</th>
+	</tr>
+</thead>
+	<tbody>
+		<tr>
+			<td><input type="text" ng-model="user.name" id="name"></td>
+			<td><input type="text" ng-model="user.id" id="id"></td>
+			<td><input type="text" ng-model="user.description"></td>
+			<td>
+			<button ng-click="saveUser(user)"><i class="fa fa-floppy-o" style="font-size:20px" title="Save"></i></button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="alert alert-success"  ng-show ="successMsg">
+  <strong>{{successMsg}}</strong>
+</div>
+
+<div class="table-header">
+	<table style="margin-right:450px;">
+		<tr>
+			 <td> 
+			 <label for="sel1" style="margin-right:15px;padding-left:5px;">Click the button to show available Users</label></td>
+		</tr>
+	</table>
+	<div class="addmenu">
+		<button ng-click="getUsers();">View Users</button>
+	</div>
+</div>
+<div class="table-header">
+	<table style="margin-right:485px;">
+		<tr>
+			 <td> 
+			 <label for="sel1" style="margin-right:15px;padding-left:5px;">Click the button to Search Users</label></td>
+		</tr>
+	</table>
+	<div class="addmenu">
+		<button ng-click="getSearchPopup()">Search Users</button>
+	</div>
+</div>
+
+<table class="table" ng-show="users.length>0">
+	<thead>
+		<tr>
+			<th style="width:300px;">ID</th>
+			<th style="width:300px;">Name</th>
+			<th style="width:300px;">Description</th>
+			<th style="width:300px;">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="result in users">
+			<td>{{result.id}}</td>
+			<td>{{result.name}}</td>
+			<td>{{result.description}}</td>
+			<td>
+				<button title="Edit" ng-click="editUser(result)" data-toggle="modal"><i class="fa fa-edit" style="font-size:20px"></i></button>
+				<button title="Delete" ng-click="deleteUser(result)"><i class="fa fa-trash-o" style="font-size:20px"></i></button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+ <!-- Modal, Edit Pop - Up -->
+ <div class="modal fade" id="editPopUp" role="dialog">
+   <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+     	<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          	<h4 class="modal-title">Update User </h4>
+	      </div>
+	      <form class="form-horizontal">
+		    <div class="form-group">
+		      <label class="control-label col-sm-5" for="email">Name:</label>
+		      <div class="col-sm-5">
+		        <input type="text" class="form-control" id="name" name="name" ng-model="editedUser.name">
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="control-label col-sm-5" for="pwd">Description:</label>
+		      <div class="col-sm-5">          
+		        <input type="text" class="form-control" id="desc" name="desc" ng-model="editedUser.description">
+		      </div>
+		    </div>
+		  </form>
+		<div class="modal-body" style="text-align: center;">
+         	<button class="btn btn-default" data-dismiss="modal" ng-click="updateUser(editedUser);">Update User</button>
+       </div>
+			      
+      </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="searchedPopUp" role="dialog">
+   <div class="modal-dialog modal-sm">
+     <div class="modal-content">
+     	<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          	<h4 class="modal-title">Search User </h4>
+	      </div>
+	      <form class="form-horizontal" style="margin-top: 10px;margin-right: 75px;">
+		    <div class="form-group">
+		      <label class="control-label col-sm-5" for="email">ID:</label>
+		      <div class="col-sm-5">
+		        <input type="text" class="form-control" id="name" name="name" ng-model="searchUser.id">
+		      </div>
+		    </div>
+		  </form>
+		<div class="modal-body" style="text-align: center;">
+         	<button class="btn btn-default" data-dismiss="modal" ng-click="searchUser(searchUser);">Search User</button>
+       </div>
+			      
+      </div>
+   </div>
+ </div>
+
+</div>
+</body>
+</html>
